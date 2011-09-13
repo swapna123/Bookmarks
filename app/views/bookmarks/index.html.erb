@@ -1,0 +1,26 @@
+
+<h1>Listing Bookmarks</h1>
+
+<table >
+  
+
+<% @bookmarks.each do |bookmarks| %>
+  <tr>
+    <td><h4>Name</h4></td>
+    <td><%= bookmarks.user_id %></td></tr>
+<tr>
+<td><h4>Title</h4></td>
+    <td><%= link_to bookmarks.title , bookmarks.title , :target => :_blank %></td></tr>
+<tr><td><h4>Description</h4></td>
+    <td><%= bookmarks.description %></td></tr>
+<tr>
+    <td><%= link_to 'Show', bookmarks %></td>
+    <td><%= link_to 'Edit', edit_bookmark_path(bookmarks) %></td>
+    <td><%= link_to 'Destroy', bookmarks, :confirm => 'Are you sure?', :method => :delete %></td></tr>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Update', new_bookmark_path %>

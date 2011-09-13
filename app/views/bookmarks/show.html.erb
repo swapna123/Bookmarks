@@ -1,0 +1,9 @@
+<b>UserId : </b>
+ <%= @bookmark.user_id %><br />
+<b>Title : </b>
+ <%= @bookmark.title %><br />
+<b>Description : </b>
+ <%= @bookmark.description %><br />
+
+<%= link_to 'Edit', edit_bookmark_path(@bookmark) %> |
+<%= link_to 'Back', bookmarks_path %>

@@ -1,0 +1,28 @@
+<html>
+<body>
+<%= stylesheet_link_tag 'new.css' %>
+<div class='container'>
+</div>
+<div class='container'>
+</div> 
+<div id='center'>
+  <div id='center-left'>
+    <% yield %>
+  </div>
+  <div id='center-right'>
+  
+ <i style="font-size:20px">Do u Want To Register</i>
+ <%= link_to "Register Now",new_user_path %> 
+
+</div></br></br>
+<div align="right">
+<i style="font-size:20px">Users Bookmarks</i>
+<% @total_bookmarks.each do |bookmarks| %>
+<%= link_to bookmarks.title , bookmarks.title, :target => :_blank%>
+<% end %>
+</div>
+
+  </div>
+</div> 
+</body>
+</html>

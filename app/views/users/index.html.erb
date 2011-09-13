@@ -1,0 +1,24 @@
+
+<h1>Listing of Users</h1>
+<%= will_paginate %>
+<table >
+  
+
+<% @users.each do |users| %>
+  <tr>
+    <td><h4>Name</h4></td>
+    <td><%= users.name %></td></tr>
+
+<tr>
+    <td><%= link_to 'Show', users %></td>
+    <td><%= link_to 'Edit', edit_user_path(users) %></td>
+    <td><%= link_to 'Destroy', users, :confirm => 'Are you sure?', :method => :delete %></td></tr>
+  </tr>
+<% end %>
+</table>
+
+<br />
+<%= will_paginate %>
+<br />
+
+<%= link_to 'New Update', new_user_path %>
