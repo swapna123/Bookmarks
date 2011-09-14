@@ -1,6 +1,7 @@
 class BookmarksController < ApplicationController
  
-  before_filter :check_session
+  before_filter :check_session_user
+before_filter :check_session_admin
 
  def index
   @bookmarks = Bookmark.paginate(:page => params[:page], :per_page => 4)

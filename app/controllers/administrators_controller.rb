@@ -15,21 +15,22 @@ class AdministratorsController < ApplicationController
 
   def create
     @administrator = Administrator.new(params[:administrator])
-   @admin = Administrator.find_all_by_username(@administrator.username)
-   if(!@admin.blank? && @admin.first.password.eql?(@administrator.password))
-    session[:admin] = @admin.first.id
-    flash[:notice] = "Logged in Successfully"
-    redirect_to dashboard_index_path
-   else
+     @admin = Administrator.find_all_by_username(@administrator.username)
+     if(!@admin.blank? && @admin.first.password.eql?(@administrator.password))
+     session[:admin] = @admin.first.id
+     flash[:notice] = "Logged in Successfully"
+     redirect_to dashboard_index_path
+     else
     flash[:error] = "Failed to login"
-    redirect_to new_login_path
+    redirect_to administrators_path
    end
-
 end
 
   def edit
-  end
-  
-  
 
+  end
+  def logout   
+   session[:administrator] = nil if session[:administrator]   
+   redirect_to administrators_path
+  end
 end

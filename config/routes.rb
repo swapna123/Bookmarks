@@ -1,7 +1,9 @@
 Bookmarks::Application.routes.draw do
   get "dashboard/index"
 
-  resources :administrators 
+  resources :administrators do
+   get 'logout' , :on => :collection
+  end
 
   resources :bookmarks
 

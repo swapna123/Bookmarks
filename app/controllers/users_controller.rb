@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
  
-  before_filter :check_session
+  before_filter :check_session_user
+before_filter :check_session_admin
 
  def index
    
@@ -16,9 +17,7 @@ class UsersController < ApplicationController
 
          @user=User.new(:name => params[:user][:name],:emailid => params[:user][:emailid],:password => params[:user][:password]) 
 
-
-
-        respond_to do |format|
+       respond_to do |format|
          if @user.save
             format.html { redirect_to users_path }
      flash[:notice] = "User Saved Successfully"
