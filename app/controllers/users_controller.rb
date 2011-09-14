@@ -1,8 +1,6 @@
 class UsersController < ApplicationController
  
-  before_filter :check_session_user
-before_filter :check_session_admin
-
+before_filter :check_session_user
  def index
    
    @users = User.paginate(:page => params[:page], :per_page => 4)
@@ -45,7 +43,7 @@ format.xml  { render :xml => @bookmark.errors, :status => :unprocessable_entity 
    @user = User.find(params[:id])
     respond_to do |format|
       if @user.update_attributes(params[:user])
-        format.html { redirect_to(users_path, :notice => 'Update was successfully updated.') }
+        format.html { redirect_to(users_path, :notice => 'User successfully updated.') }
      else
         format.html { render :action => "edit" }
     end
@@ -57,6 +55,7 @@ format.xml  { render :xml => @bookmark.errors, :status => :unprocessable_entity 
     @user.destroy
  redirect_to users_path
   end
-  
+
+
 
 end

@@ -11,7 +11,7 @@ def check_session_user
  def check_session_admin
     if session[:admin].nil?
       flash[:error] = "You are not authenticated"
-     redirect_to home_index_path
+     redirect_to dashboard_index_path
     end
  end
 end

@@ -9,7 +9,7 @@
     <%= render 'form' %><br/><br/><br/><br/>
 <i style="font-size:20px">Users Bookmarks</i><br />
 <% @total_bookmarks.each do |bookmarks| %>
-<%= link_to bookmarks.title , bookmarks.title, :target => :_blank%>
+<%= link_to bookmarks.title , bookmarks.title, :target => :_blank%><br />
 <% end %>
   </div>
 <div id='center-right'>

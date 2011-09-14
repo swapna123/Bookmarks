@@ -1,7 +1,6 @@
 class BookmarksController < ApplicationController
  
   before_filter :check_session_user
-before_filter :check_session_admin
 
  def index
   @bookmarks = Bookmark.paginate(:page => params[:page], :per_page => 4)
@@ -15,7 +14,7 @@ def create
 @bookmark = Bookmark.new(params[:bookmark])
     respond_to do |format|
       if @bookmark.save
-        format.html { redirect_to(@bookmark, :notice => 'Update was successfully created.') }
+        format.html { redirect_to(@bookmark, :notice => 'Bookmark was successfully created.') }
        else
         format.html { render :action => "new" }
         format.xml  { render :xml => @bookmark.errors, :status => :unprocessable_entity }
@@ -34,7 +33,7 @@ def update
  @bookmark = Bookmark.find(params[:id])
  respond_to do |format|
       if @bookmark.update_attributes(params[:bookmark])
-        format.html { redirect_to(bookmarks_path, :notice => 'Update was successfully updated.') }
+        format.html { redirect_to(bookmarks_path, :notice => 'Bookmark was successfully updated.') }
      else
         format.html { render :action => "edit" }
     end

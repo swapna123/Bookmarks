@@ -1,0 +1,3 @@
+<% @users.each do |u| %>
+<%= link_to u.name , dashboard_users_show_path(:id => u.id) %><br/>
+<% end %>

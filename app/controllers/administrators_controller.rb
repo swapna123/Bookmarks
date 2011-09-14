@@ -29,8 +29,10 @@ end
   def edit
 
   end
-  def logout   
-   session[:administrator] = nil if session[:administrator]   
+  def logout 
+puts"11111111111111111111111111111!"  
+   session[:admin] = nil if session[:admin]   
+
    redirect_to administrators_path
   end
 end

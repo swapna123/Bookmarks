@@ -1,0 +1,11 @@
+<b>UserName : </b>
+ <%= @user.name %><br />
+<b>EmailId : </b>
+ <%= @user.emailid %><br />
+
+<b>Bookmarks</b><br />
+<% @user.bookmarks.each do |b| %>
+<%= b.title %><br />
+<% end %>
+
+<%= link_to 'Back', dashboard_users_index_path %>
