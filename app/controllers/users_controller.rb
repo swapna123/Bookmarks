@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
  
+  before_filter :check_session
 
  def index
    
@@ -24,6 +25,7 @@ class UsersController < ApplicationController
         else
             format.html{render :action => "new"}
       flash[:error] = "User failed to Save"
+format.xml  { render :xml => @bookmark.errors, :status => :unprocessable_entity }
        end
     end
    else
@@ -56,9 +58,6 @@ class UsersController < ApplicationController
     @user.destroy
  redirect_to users_path
   end
-  def register
-
-  end
-
+  
 
 end

@@ -1,7 +1,14 @@
 Bookmarks::Application.routes.draw do
+  get "dashboard/index"
+
+  resources :administrators 
+
   resources :bookmarks
 
-  resources :home
+  resources :home do
+  get 'view_all' , :on => :collection
+  get 'logout' , :on => :collection
+end
    
  
 resources :users 

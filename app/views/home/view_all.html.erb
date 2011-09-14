@@ -1,0 +1,5 @@
+<b>View All Users : </b><br/><br />
+<% @users.each do |b| %>
+<%= link_to b.name , home_path(:id => b.id) %><br />
+<% end %>
+ 

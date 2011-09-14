@@ -1,7 +1,9 @@
 class BookmarksController < ApplicationController
+ 
+  before_filter :check_session
 
  def index
-  @bookmarks = Bookmark.all
+  @bookmarks = Bookmark.paginate(:page => params[:page], :per_page => 4)
   end
 
 def new 
@@ -15,6 +17,7 @@ def create
         format.html { redirect_to(@bookmark, :notice => 'Update was successfully created.') }
        else
         format.html { render :action => "new" }
+        format.xml  { render :xml => @bookmark.errors, :status => :unprocessable_entity }
      end
   end
 end
@@ -38,8 +41,8 @@ def update
 end
 
 def destroy
-@bookmark = Bookmark.find(params[:id])
-    @bookmark.destroy
+  @bookmark = Bookmark.find(params[:id])
+     @bookmark.destroy
  redirect_to bookmarks_path
 end
 

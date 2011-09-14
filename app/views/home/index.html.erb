@@ -1,2 +1,29 @@
+<!DOCTYPE html>
+<html>
+<body>
+<%= stylesheet_link_tag "public/new.css" %>
 
-<%= render 'form' %>
+
+<div id='center'>
+  <div id='center-left'>
+    <%= render 'form' %><br/><br/><br/><br/>
+<i style="font-size:20px">Users Bookmarks</i><br />
+<% @total_bookmarks.each do |bookmarks| %>
+<%= link_to bookmarks.title , bookmarks.title, :target => :_blank%>
+<% end %>
+  </div>
+<div id='center-right'>
+  
+ <i style="font-size:20px">Do u Want To Register</i>
+ <%= link_to "Register Now",new_user_path %> <br/><br/><br/>
+<i style="font-size:20px">Users </i><br />
+<% @users.each do |users| %>
+<%= link_to users.name , home_path(:id => users.id) %><br />
+<% end %>
+</br></br>
+<%= link_to 'viewall' , view_all_home_index_path%>
+  </div>
+ 
+
+</body>
+</html>

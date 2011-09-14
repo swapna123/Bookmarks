@@ -1,6 +1,6 @@
-
+<%= render 'home/admin' %>
 <h1>Listing Bookmarks</h1>
-
+<%= will_paginate %>
 <table >
   
 
@@ -22,5 +22,6 @@
 </table>
 
 <br />
-
+<%= will_paginate %>
+<br />
 <%= link_to 'New Update', new_bookmark_path %>
