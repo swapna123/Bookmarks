@@ -4,6 +4,7 @@ class BookmarksController < ApplicationController
 
  def index
   @bookmarks = Bookmark.paginate(:page => params[:page], :per_page => 4)
+  
   end
 
 def new 
@@ -11,10 +12,11 @@ def new
 end
 
 def create
-@bookmark = Bookmark.new(params[:bookmark])
+ @user = User.find(session[:user])
+ @bookmark=Bookmark.new(:title => params[:bookmark][:title],:description => params[:bookmark][:description],:user_id => @user.id)
     respond_to do |format|
       if @bookmark.save
-        format.html { redirect_to(@bookmark, :notice => 'Bookmark was successfully created.') }
+        format.html { redirect_to users_path, :notice => 'Bookmark was successfully created.' }
        else
         format.html { render :action => "new" }
         format.xml  { render :xml => @bookmark.errors, :status => :unprocessable_entity }
@@ -33,7 +35,7 @@ def update
  @bookmark = Bookmark.find(params[:id])
  respond_to do |format|
       if @bookmark.update_attributes(params[:bookmark])
-        format.html { redirect_to(bookmarks_path, :notice => 'Bookmark was successfully updated.') }
+        format.html { redirect_to(users_path, :notice => 'Bookmark was successfully updated.') }
      else
         format.html { render :action => "edit" }
     end
@@ -43,7 +45,7 @@ end
 def destroy
   @bookmark = Bookmark.find(params[:id])
      @bookmark.destroy
- redirect_to bookmarks_path
+ redirect_to users_path
 end
 
 end

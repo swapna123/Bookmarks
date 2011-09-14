@@ -10,9 +10,6 @@
 <% end %>
 
 <%= form_for(@bookmark) do |f| %>
-<%= f.label :UserId %>
-<%= f.collection_select :user_id , User.all, :id, :name, :prompt => true %>
-</br>
   <%= f.label :Title %>
   <%= f.text_field :title %> </br>
   <%= f.label :Description %>

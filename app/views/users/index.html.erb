@@ -1,24 +1,34 @@
 <%= render 'home/admin' %>
-<h1>Listing of Users</h1>
-<%= will_paginate %>
+<h1>Welcome to your profile</h1>
 <table >
-  
-
-<% @users.each do |users| %>
-  <tr>
+<tr>
     <td><h4>Name</h4></td>
-    <td><%= users.name %></td></tr>
+    <td><%= @user.name %></td></tr><tr>
+     <td><%= link_to 'Edit', edit_user_path(@user.id) %></td>
+    <td><%= link_to 'Destroy', users_path, :confirm => 'Are you sure?', :method => :delete %></td></tr>
+  </tr>
+  
+<% @bookmarks.each do |books| %>
+ <tr>
+   <td><span>Title :</span></td>
+   <td><%= link_to books.title , books.title ,:target=>:_blank %></td></tr></br>    
+   <td><span>Description :</span></td>
+   <td><%=  books.description %></td></tr></br>
 
 <tr>
-    <td><%= link_to 'Show', users %></td>
-    <td><%= link_to 'Edit', edit_user_path(users) %></td>
-    <td><%= link_to 'Destroy', users, :confirm => 'Are you sure?', :method => :delete %></td></tr>
-  </tr>
+   <td><%= link_to 'Show', books %></td>
+   <td><%= link_to 'Edit', edit_bookmark_path(books) %></td>
+   <td><%= link_to 'Destroy', books, :confirm => 'Are you sure?', :method => :delete %></td></tr></br>
+ </tr>
 <% end %>
+
+  
+
+
 </table>
 
 <br />
-<%= will_paginate %>
+
 <br />
 
-<%= link_to 'New Update', new_user_path %>
+<%= link_to 'New Bookmark', new_bookmark_path %>

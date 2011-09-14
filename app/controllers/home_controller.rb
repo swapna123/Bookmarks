@@ -12,7 +12,7 @@ class HomeController < ApplicationController
    if(!@user1.blank? && @user1.first.password.eql?(@user.password))
     session[:user] = @user1.first.id
     flash[:notice] = "Logged in Successfully"
-    redirect_to user_path
+    redirect_to users_path
    else
     flash[:error] = "Failed to login"
     redirect_to home_index_path
@@ -28,5 +28,7 @@ class HomeController < ApplicationController
    session[:user] = nil if session[:user]
    flash[:notice] = "Logged out Successfully"
      redirect_to home_index_path
+  end
+  def login
   end
 end

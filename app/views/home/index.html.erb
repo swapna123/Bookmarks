@@ -6,7 +6,9 @@
 
 <div id='center'>
   <div id='center-left'>
-    <%= render 'form' %><br/><br/><br/><br/>
+<%= link_to 'Already A User?,Click Here..' , login_home_index_path %>  
+<%= link_to 'Admin..' , administrators_path %>  
+    <%#= render 'home/form' %><br/><br/><br/><br/>
 <i style="font-size:20px">Users Bookmarks</i><br />
 <% @total_bookmarks.each do |bookmarks| %>
 <%= link_to bookmarks.title , bookmarks.title, :target => :_blank%><br />

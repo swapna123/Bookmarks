@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
  
-before_filter :check_session_user
+#before_filter :check_session_user
  def index
-   
-   @users = User.paginate(:page => params[:page], :per_page => 4)
+   @user = User.find(session[:user])
+  @bookmarks = Bookmark.where(:user_id => @user.id).order("created_at DESC").paginate(:page => params[:page], :per_page => 3)
   end
 
   def new

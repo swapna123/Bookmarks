@@ -12,6 +12,7 @@ Bookmarks::Application.routes.draw do
   resources :home do
   get 'view_all' , :on => :collection
   get 'logout' , :on => :collection
+  get 'login' , :on => :collection
 end
    
  

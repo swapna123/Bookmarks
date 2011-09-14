@@ -1,0 +1,8 @@
+<%= form_for(:user , :url => {:controller => "home" , :action => "create"}) do |f|%>
+
+<%= f.label :email %>
+  <%= f.text_field :emailid %><br />
+<%= f.label :Password  %>
+  <%= f.password_field :password %><br />
+  <%= f.submit "Login" %>
+<% end %>
