@@ -3,16 +3,17 @@
 <body>
 <%= stylesheet_link_tag "public/new.css" %>
 
-
 <div id='center'>
   <div id='center-left'>
-<%= link_to 'Already A User?,Click Here..' , login_home_index_path %>  
+<%= link_to 'Already A User?,Click Here..' , login_home_index_path %> &nbsp &nbsp &nbsp &nbsp &nbsp
 <%= link_to 'Admin..' , administrators_path %>  
     <%#= render 'home/form' %><br/><br/><br/><br/>
+<%= will_paginate @total_bookmarks %><br />
 <i style="font-size:20px">Users Bookmarks</i><br />
 <% @total_bookmarks.each do |bookmarks| %>
 <%= link_to bookmarks.title , bookmarks.title, :target => :_blank%><br />
-<% end %>
+<% end %><br/>
+<%= will_paginate @total_bookmarks %>
   </div>
 <div id='center-right'>
   

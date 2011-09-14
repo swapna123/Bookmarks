@@ -3,7 +3,7 @@ class HomeController < ApplicationController
  #before_filter :check_session
 
  def index
-   @total_bookmarks = Bookmark.all
+   @total_bookmarks = Bookmark.paginate(:page => params[:page], :per_page => 4)
    @users = User.limit(3)
   end
  def create
